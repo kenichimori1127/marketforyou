@@ -12,6 +12,6 @@ class User < ApplicationRecord
     validates :family_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'は全角文字で入力してください', allow_blank: true }
     validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: 'は全角文字で入力してください', allow_blank: true }
     validates :family_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: 'は全角文字で入力してください', allow_blank: true }
-    validates :phone_number
+    validates :phone_number, format: {with: /\A\d{10,11}\z/  , message: "は11桁以内で入力してください", allow_blank: true }
   end
 end
