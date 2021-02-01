@@ -1,0 +1,20 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+<p>User id : <%= @user.id %></p>
+<% if current_staff %>
+    <% if Relationship.followed_each_other?(current_staff.id, @user.id) %>
+        <p>相互フォロー中</p>
+    <% else %>
+        <p>相互フォローではありません</p>
+    <% end %>
+
+    <div class="follow">
+        <% if current_staff %>
+            <% unless relationship = Relationship.find_by(staff_id: current_staff.id, user_id: @user.id, user_type: Relationship::FOLLOW_STAFF) %>
+                <%= button_to "フォローする", relationships_path, params: {user_id: @user.id}, method: :post %>
+            <% else %>
+                <%= button_to "フォロー中", relationship_path(relationship.id), params: {user_id: @user.id}, method: :delete %>
+            <% end %>
+        <% end %>
+    </div>
+<% end %>

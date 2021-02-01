@@ -8,10 +8,17 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  resources :users, :only => [:show]
+
   # スタッフ
   devise_for :staffs, controllers: {
-    sessions: 'staffs/sessions',
-    passwords: 'staffs/passwords',
+    sessions:      'staffs/sessions',
+    passwords:     'staffs/passwords',
     registrations: 'staffs/registrations'
   }
+
+  resources :staffs, :only => [:show]
+
+  # フォロー
+  resources :relationships, :only => [:create, :destroy]
 end
