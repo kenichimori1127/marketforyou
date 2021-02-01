@@ -1,15 +1,49 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>MarketForyou</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Marketforyou</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700,900&display=swap" rel="stylesheet">
   </head>
 
   <body>
+    <header class="header">
+      <div class="inner">
+        <div class="nav">
+          <div class="nav__left">
+            <%= link_to image_tag("marketforyou.logo.png", class: :logo) %>
+          </div>
+          <% if user_signed_in? %>
+            <div class="nav__right">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__btn %>
+              <%= link_to "チャット", root_path, class: :nav__btn %>
+              <%= link_to "来店予約", root_path, class: :nav__btn %>
+            </div>
+          <% else %>
+            <div class="nav__right">
+              <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
+              <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </header>
+
     <%= yield %>
+
+    <footer class="footer">
+        <ul class="sns">
+          <li><%= link_to image_tag("facebook.png", class:"sns_image"), "/" %></li>
+          <li><%= link_to image_tag("twitter.png", class:"sns_image"), "/" %></li>
+          <li><%= link_to image_tag("instagram.png", class:"sns_image"), "/" %></li>
+        </ul>
+      <p class="copyright">© MARKETFORYOU All Rights Reserved.</p>
+    </footer>
   </body>
 </html>
