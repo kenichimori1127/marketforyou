@@ -5,6 +5,11 @@
         <%= "ようこそ" %>
         <%= link_to "#{current_user.nickname}さん", root_path, class: :greeting__link %>
         </div>
+      <% elsif staff_signed_in? %>
+      <div class="greeting">
+        <%= "ようこそ" %>
+        <%= link_to "#{current_staff.nickname}さん", root_path, class: :greeting__link %>
+      </div>
       <% else %>
       <div class="greeting">
       <%= link_to "ようこそゲストさん", root_path, class: :greeting__link %>
