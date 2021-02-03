@@ -1,0 +1,11 @@
+<div class='chat-room-form'>
+  <h1>チャットするユーザーを選択してください</h1>
+    <% if @user_array.present? %>
+      <div class='chat-room-form__field'>
+        <%= select_tag 'name', options_for_select(@user_array.collect), include_blank: false, class: 'chat-room-form__label'%>
+        <%= button_to "チャットする", relationships_path, params: {user_id: @user_array.first[1]}, method: :post, class: 'chat-room-form__action-btn' %>
+      </div>
+    <% else %>
+      <p>フォローしていないユーザーは存在しません。</p>
+    <% end %>
+</div>

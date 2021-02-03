@@ -22,13 +22,13 @@
           <% if user_signed_in? %>
             <div class="nav__right">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__btn %>
-              <%= link_to "チャット", root_path, class: :nav__btn %>
+              <%= link_to "チャット", staffs_path, class: :nav__btn %>
               <%= link_to "来店予約", root_path, class: :nav__btn %>
             </div>
           <% elsif staff_signed_in? %>
             <div class="nav__right">
               <%= link_to "ログアウト", destroy_staff_session_path, method: :delete, class: :nav__btn %>
-              <%= link_to "チャット", root_path, class: :nav__btn %>
+              <%= link_to "チャット", users_path, class: :nav__btn %>
             </div>
           <% else %>
             <div class="nav__right">
