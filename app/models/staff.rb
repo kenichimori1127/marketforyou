@@ -9,4 +9,7 @@ class Staff < ApplicationRecord
     validates :email, allow_blank: true
     validates :password, allow_blank: true, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'は半角英文字で入力してください', allow_blank: true }
   end
+
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
 end

@@ -12,3 +12,7 @@ ja:
         nickname: ニックネーム
         email: Eメール
         password: パスワード
+
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"

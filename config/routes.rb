@@ -21,4 +21,8 @@ Rails.application.routes.draw do
 
   # フォロー
   resources :relationships, :only => [:create, :destroy]
+
+  # メッセージ
+  resources :messages, :only => [:create]
+  resources :rooms, :only => [:create, :show, :index]
 end

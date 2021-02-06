@@ -1,9 +1,21 @@
 <h1>Staffs#show</h1>
 <p>Find me in app/views/staffs/show.html.erb</p>
 <p>Staff id : <%= @staff.id %></p>
+<%# フォロー %>
 <% if current_user %>
     <% if Relationship.followed_each_other?(@staff.id, current_user.id) %>
         <p>相互フォロー中</p>
+        <%# メッセージ %>
+        <% if @isRoom == true %>
+            <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+        <% elsif current_user %>
+            <%= form_for @room do |f| %>
+                <%= fields_for @entry do |e| %>
+                    <%= e.hidden_field :staff_id, :value=> @staff.id %>
+                <% end %>
+                <%= f.submit "チャットを始める" %>
+            <% end %>
+        <% end %>
     <% else %>
         <p>相互フォローではありません</p>
     <% end %>

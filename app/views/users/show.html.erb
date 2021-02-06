@@ -4,6 +4,17 @@
 <% if current_staff %>
     <% if Relationship.followed_each_other?(current_staff.id, @user.id) %>
         <p>相互フォロー中</p>
+        <%# メッセージ %>
+        <% if @isRoom == true %>
+            <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+        <% elsif current_staff %>
+            <%= form_for @room do |f| %>
+                <%= fields_for @entry do |e| %>
+                    <%= e.hidden_field :user_id, :value=> @user.id %>
+                <% end %>
+                <%= f.submit "チャットを始める" %>
+            <% end %>
+        <% end %>
     <% else %>
         <p>相互フォローではありません</p>
     <% end %>
