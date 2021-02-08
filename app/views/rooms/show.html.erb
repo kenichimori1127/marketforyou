@@ -29,7 +29,7 @@
 <div class="form">
   <div class="form-input">
     <%= form_for @message do |f| %>
-      <%= f.text_field :content, class: 'form-message', :placeholder => "メッセージを入力して下さい" , :size => 150 %>
+      <%= f.text_field :content, class: 'form-message', placeholder: "メッセージを入力して下さい", :size => 150 %>
       <%= f.hidden_field :room_id, :value => @room.id %>
   </div>
 </div>
