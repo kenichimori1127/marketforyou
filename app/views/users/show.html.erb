@@ -1,31 +1,32 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<p>User id : <%= @user.id %></p>
+<div class='chat-room-form'>
+<h1>チャットするユーザー : <%= @user.id %></h1>
+<%# フォロー %>
 <% if current_staff %>
-    <% if Relationship.followed_each_other?(current_staff.id, @user.id) %>
-        <p>相互フォロー中</p>
-        <%# メッセージ %>
-        <% if @isRoom == true %>
-            <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
-        <% elsif current_staff %>
-            <%= form_for @room do |f| %>
-                <%= fields_for @entry do |e| %>
-                    <%= e.hidden_field :user_id, :value=> @user.id %>
-                <% end %>
-                <%= f.submit "チャットを始める" %>
-            <% end %>
+  <% if Relationship.followed_each_other?(current_staff.id, @user.id) %>
+    <h1>現在の状態：相互フォロー中</h1>
+    <%# メッセージ %>
+    <% if @isRoom == true %>
+      <h1><a href="/rooms/<%= @roomId %>">チャットへ</a></h1>
+    <% elsif current_staff %>
+      <%= form_for @room do |f| %>
+        <%= fields_for @entry do |e| %>
+          <%= e.hidden_field :user_id, :value=> @user.id %>
         <% end %>
-    <% else %>
-        <p>相互フォローではありません</p>
+        <%= f.submit "チャットを始める" %>
+      <% end %>
     <% end %>
+  <% else %>
+    <h1>現在の状態：相互フォローではありません</h1>
+  <% end %>
 
-    <div class="follow">
-        <% if current_staff %>
-            <% unless relationship = Relationship.find_by(staff_id: current_staff.id, user_id: @user.id, user_type: Relationship::FOLLOW_STAFF) %>
-                <%= button_to "フォローする", relationships_path, params: {user_id: @user.id}, method: :post %>
-            <% else %>
-                <%= button_to "フォロー中", relationship_path(relationship.id), params: {user_id: @user.id}, method: :delete %>
-            <% end %>
-        <% end %>
-    </div>
+  <div class="follow">
+    <% if current_staff %>
+      <% unless relationship = Relationship.find_by(staff_id: current_staff.id, user_id: @user.id, user_type: Relationship::FOLLOW_STAFF) %>
+        <%= button_to "フォローする", relationships_path, params: {user_id: @user.id}, method: :post, class: 'chat-room-form__action-btn' %>
+      <% else %>
+        <%= button_to "フォロー解除", relationship_path(relationship.id), params: {user_id: @user.id}, method: :delete, class: 'chat-room-form__action-btn' %>
+      <% end %>
+    <% end %>
+  </div>
 <% end %>
+</div>

@@ -18,7 +18,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     if current_user
       if Entry.where(:user_id => current_user.id, :room_id => @room.id).present?
-        @messages = @room.messages
+        @messages = @room.messages.order("created_at DESC")
         @message = Message.new
         @entries = @room.entries
       else
@@ -26,7 +26,7 @@ class RoomsController < ApplicationController
       end
     elsif current_staff
       if Entry.where(:staff_id => current_staff.id, :room_id => @room.id).present?
-        @messages = @room.messages
+        @messages = @room.messages.order("created_at DESC")
         @message = Message.new
         @entries = @room.entries
       else

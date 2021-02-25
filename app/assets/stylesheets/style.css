@@ -194,6 +194,7 @@ li {
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
   transition: 0.2s ease;
   outline: none;
+  margin: 10px;
 }
 
 .chat-room-form__action-btn:hover{
@@ -273,6 +274,7 @@ select {
 .wrapper{
   display: flex;
 }
+
 .side-bar{
   width: 300px;
   height: 100vh;
@@ -367,13 +369,14 @@ select {
 
 .message-user {
   color: #434a54;
-  font-size: 16px;
+  font-size: 14px;
+  padding-left: 200px;
 }
 
 .message-date {
   color: #999;
   font-size: 12px;
-  padding-left: 10px;
+  padding: 0 200px 20px;
 }
 
 .lower-message {
@@ -382,9 +385,10 @@ select {
 
 .message-content {
   color: #434a54;
-  font-size: 14px;
-  margin-bottom: 40px;
+  font-size: 16px;
+  padding-left: 200px;
 }
+
 
 .form {
   background-color: #DDDDDD;
@@ -428,6 +432,10 @@ select {
 
 .hidden {
   display: none;
+}
+
+.message-image {
+  padding-left: 200px;
 }
 
 /* エラーメッセージ */
@@ -578,6 +586,31 @@ select {
   box-sizing: border-box;
   }
 
+  .message-user {
+  color: #434a54;
+  font-size: 14px;
+  padding-left: 100px;
+  }
+
+  .message-date {
+  color: #999;
+  font-size: 12px;
+  padding: 0 100px 20px;
+  }
+
+  .lower-message {
+  margin-top: 10px;
+  }
+
+  .message-content {
+  color: #434a54;
+  font-size: 16px;
+  padding-left: 100px;
+  }
+
+  .message-image {
+  padding-left: 100px;
+  }
 }
 
 
@@ -614,5 +647,31 @@ select {
   }
   .pop_image{
   padding: 10px;
+  }
+
+  .message-user {
+  color: #434a54;
+  font-size: 14px;
+  padding-left: 10px;
+  }
+
+  .message-date {
+  color: #999;
+  font-size: 12px;
+  padding: 0 10px 20px;
+  }
+
+  .lower-message {
+  margin-top: 10px;
+  }
+
+  .message-content {
+  color: #434a54;
+  font-size: 16px;
+  padding-left: 10px;
+  }
+
+  .message-image {
+  padding-left: 10px;
   }
 }
