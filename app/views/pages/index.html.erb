@@ -22,8 +22,13 @@
         <li><%= link_to image_tag("banner3.jpg", class:"banner_image"), "/" %></li>
       </ul>
       <ul class="pop">
-        <li><%= link_to image_tag("chat.png", class:"pop_image"), "/" %></li>
-        <li><%= link_to image_tag("reservation.png", class:"pop_image"), "/" %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to image_tag("chat.png", class:"pop_image"), staffs_path %></li>
+          <li><%= link_to image_tag("reservation.png", class:"pop_image"), "/" %></li>
+        <% elsif staff_signed_in? %>
+          <li><%= link_to image_tag("chat.png", class:"pop_image"), users_path %></li>
+        <% else %>
+        <% end %>
       </ul>
     </div>
   </div>

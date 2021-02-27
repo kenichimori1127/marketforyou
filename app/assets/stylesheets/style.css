@@ -71,6 +71,22 @@ a {
   background: #faccf7;
 }
 
+/* スライド */
+.slick{
+    width: 1000px;
+    height: auto;
+    margin: 30px auto;
+    display: block
+}
+/* JavaScript が有効な場合に非表示 */
+html.enable-javascript .hide-enable-js{
+  display: none;
+}
+/* JavaScript が無効な場合に非表示 */
+html:not(.enable-javascript) .hide-disable-js{
+  display: none;
+}
+
 /* フォーム周り */
 
 .form__wrapper{
@@ -611,6 +627,11 @@ select {
   .message-image {
   padding-left: 100px;
   }
+
+  .slick{
+    width: 90%;
+    margin: 0px auto;
+  }
 }
 
 
@@ -673,5 +694,10 @@ select {
 
   .message-image {
   padding-left: 10px;
+  }
+
+  .slick{
+  width: 90%;
+  margin: 0px auto;
   }
 }

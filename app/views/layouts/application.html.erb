@@ -5,10 +5,32 @@
     <title>Marketforyou</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700,900&display=swap" rel="stylesheet">
+ <%# トップページのスライド %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+   <script>
+   (function(){
+  var html = document.getElementsByTagName('html')||[];
+  html[0].classList.add('enable-javascript');
+  window.addEventListener("load", function(){
+    html[0].classList.add('window-load');
+  }, false);
+})();
+    $(document).on('turbolinks:load', function() {
+      $(document).ready(function () {
+        $('.slick').slick({
+          dots: true,
+          autoplay: true
+        });
+      });
+    });
+  </script>
+  <%# //トップページのスライド %>
   </head>
 
   <body>
