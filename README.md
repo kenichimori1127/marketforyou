@@ -2,9 +2,10 @@
 ----------
 来店予約や店頭スタッフとDMや写真投稿が可能の架空のアパレルサイト
 
-|トップページ|ユーザー新規登録|スタッフ新規登録|フォロー機能|
-|---|---|---|---|
-|![](https://user-images.githubusercontent.com/71421107/109907085-f7665a80-7ce4-11eb-9af1-fcf42eae2d03.gif)|![](https://user-images.githubusercontent.com/71421107/109907136-1369fc00-7ce5-11eb-81a8-f41d42a4582a.gif)|![](https://user-images.githubusercontent.com/71421107/109907231-40b6aa00-7ce5-11eb-9db7-32cd225bdecf.gif)|![](https://user-images.githubusercontent.com/71421107/109907340-66dc4a00-7ce5-11eb-90aa-2919c9e9f2b6.gif)|  
+|トップページ|ユーザー新規登録|
+|---|---|
+|![](https://user-images.githubusercontent.com/71421107/109909377-562dd300-7ce9-11eb-92a3-bebd33a27245.gif)|![](https://user-images.githubusercontent.com/71421107/109909981-79a54d80-7cea-11eb-92e0-c6c59d96b1bb.gif)|
+|スタッフ新規登録|フォロー機能|![](https://user-images.githubusercontent.com/71421107/109907231-40b6aa00-7ce5-11eb-9db7-32cd225bdecf.gif)|![](https://user-images.githubusercontent.com/71421107/109907340-66dc4a00-7ce5-11eb-90aa-2919c9e9f2b6.gif)|  
 |コメント・画像投稿機能|来店予約機能|
 |![](https://user-images.githubusercontent.com/71421107/109907610-fc77d980-7ce5-11eb-9420-787f5f49a5c2.gif)|![](https://user-images.githubusercontent.com/71421107/109902556-f67dfa80-7cdd-11eb-9ee9-793cbd43337a.mp4)|
 
