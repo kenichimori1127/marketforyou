@@ -2,11 +2,12 @@
 ----------
 来店予約や店頭スタッフとDMや写真投稿が可能の架空のアパレルサイト
 
-|root|かんたんログイン|カフェ一覧|カフェ詳細|
+|トップページ|ユーザー新規登録|スタッフ新規登録|フォロー機能|
 |---|---|---|---|
-|![](toppage.png)|![](https://user-images.githubusercontent.com/60636597/82975362-2bef0c80-a017-11ea-84f1-188202c066eb.PNG)|![](https://user-images.githubusercontent.com/60636597/82975390-4628ea80-a017-11ea-86f5-dabf1d11f84e.PNG)|![](https://user-images.githubusercontent.com/60636597/82975443-66f14000-a017-11ea-84fa-caddfd97815b.PNG)|  
-|カフェ紹詳細|カフェサイト遷移|ナビURLスキーム|
-|![](https://user-images.githubusercontent.com/60636597/82976519-42e32e00-a01a-11ea-99a4-16082d065a38.PNG)|![](https://user-images.githubusercontent.com/60636597/82976951-6bb7f300-a01b-11ea-95ed-8dea15efef2f.PNG)|![](https://user-images.githubusercontent.com/60636597/82977033-9d30be80-a01b-11ea-8683-0223d23f1531.PNG)|  
+|![](https://user-images.githubusercontent.com/71421107/109907085-f7665a80-7ce4-11eb-9af1-fcf42eae2d03.gif)|![](https://user-images.githubusercontent.com/71421107/109907136-1369fc00-7ce5-11eb-81a8-f41d42a4582a.gif)|![](https://user-images.githubusercontent.com/71421107/109907231-40b6aa00-7ce5-11eb-9db7-32cd225bdecf.gif)|![](https://user-images.githubusercontent.com/71421107/109907340-66dc4a00-7ce5-11eb-90aa-2919c9e9f2b6.gif)|  
+|コメント・画像投稿機能|来店予約機能|
+|![](https://user-images.githubusercontent.com/71421107/109907366-79ef1a00-7ce5-11eb-899a-9aaa8447e878.gif)|![](https://user-images.githubusercontent.com/71421107/109902556-f67dfa80-7cdd-11eb-9ee9-793cbd43337a.mp4)|
+
 
 
 **アプリケーション開発の背景**
@@ -25,39 +26,18 @@
 
 **実装を完了した機能の一覧**
 ----------
-**１）デモデータの充実(起動時にdb:seef.fuコマンドでモデルに事前投入）<br>**
-&emsp;&emsp;デモデータ:19件、 デモ画像:95枚<br>
-**２）GoogleMaps地図表示、現在地取得　(Google Cloud Platformサービス maps javascriput API使用) <br>**
-&emsp;&emsp;２種類の地図表示　（お店一覧ページで全店舗の吹き出し表示、お店詳細ページでそのお店だけの吹き出し表示）<br>
-**３）ナビ機能　googlemap URLスキーム（外部依存）利用 <br>**
-&emsp;&emsp;お店一覧ページで全店舗の吹き出し表示のリンク、お店詳細ページでナビボタン押下で起動 <br>
-&emsp;&emsp;→本家がアプリ起動し同時にナビ開始<br>
-**４）サインイン機能(devise) <br>**
-&emsp;&emsp;手軽に使ってもらうため、ニックネーム、パスワードのみにカスタム <br>
-**５）簡単ログインボタン <br>**
-&emsp;&emsp;管理者やユーザーとして、簡単にテストログインできる  <br>
-**６）CRUD機能（管理者のみ登録編集削除可） <br>**
-&emsp;&emsp;管理者はお店情報、画像、コメントを登録、編集、削除可能 <br>
-**7）コメント（口コミ）投稿削除機能<br>**
-&emsp;&emsp;ユーザーはコメントの登録、削除のみ可能<br>
-**8）画像アップロード機能（carrierwave）<br>**
+**1）ユーザー新規登録機能(devise) <br>**
+**2）ユーザーログイン機能(devise) <br>**
+**3）スタッフ新規登録機能(devise) <br>**
+**4）ユーザーログイン機能(devise) <br>**
+**5）フォロー機能<br>**
+&emsp;ユーザーはコメントの登録、削除のみ可能<br>
+**8）コメント・画像投稿機能<br>**
 **9）スマホレスポンシブ機能  <br>**
 &emsp;&emsp;非Bootstrap、スクラッチ <br>
-**10）おすすめ度・星評価（レートDB取得css表示）  <br>**
-**11）お問合せフォーム機能（入力/確認/お礼/自動Gmail送信機能）<br>**
-&emsp;&emsp;サインインアウト状態問わず、お問い合わせフォームに遷移でき、メッセージ送信で自動でgmailが管理者に届く <br>
-**12)Docker、docker-composeローカル開発<br>**
-&emsp;&emsp;ローカル環境にてDocker実装、Dockerfile、Docker-composeにてイメージ、コンテナを管理<br>
-**13）テストの実施（model)<br>**
+**10）テストの実施（model)<br>**
 &emsp;&emsp;RSpec、factory_bot使用<br>
 
-〜以下、CircleCI自動デプロイ作業=nomadcafe-subリポジトリ〜<br>
-https://github.com/Sakagami-Keisuke/nomadcafe-sub<br>
-**15）独自ドメイン取得、AWS Route53DNS、Let’s Encryptで無料SSL証明書取得、HTTPS接続設定**<br>
-**16）スマートフォン実機でのアプリ動作、マップ表示、現在地取得、ナビURLスキーム検証、CSS調整**<br>
-**17）CI/CD CircleCI masterpush自動デプロイ化（学習作業中）**<br><br>
-**18）課題：EC2インスタンスコスト縮減　定時自動起動停止(Lambda とCloudWatch)** <br>
- 
 **開発日数**
 ----------
 **作業期間 2020年12月25日 〜 2021年2月28日<br>**
@@ -75,8 +55,6 @@ https://github.com/Sakagami-Keisuke/nomadcafe-sub<br>
 &emsp;RSpec/factory_bot<br>
 インフラ<br>
 &emsp;AWS EC2 Linux2AMI t3small<br>
-ドメイン・DNS<br>
-&emsp;お名前ドットコム/AWS Route53<br>
 本番環境<br>
 &emsp;webサーバー/Nginx 手動デプロイ<br>
 使用Gem<br>
@@ -93,8 +71,8 @@ jquery-rails<br><br>
 
 連絡先
 ----------
-坂上計介 サカガミケイスケ
-&emsp;&emsp;Gmail / iwayasunset@gmail.com &emsp;&emsp;twitter / https://twitter.com/slope_top_kei
+森 賢一 (モリケンイチ)
+&emsp;Gmail / on88.mori.kenichi@gmail.com
 
 
 
